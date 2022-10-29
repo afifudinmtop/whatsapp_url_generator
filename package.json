@@ -1,0 +1,17 @@
+{
+  "name": "whatsapp_url_generator",
+  "version": "1.0.0",
+  "description": "generate whatsapp api url from text",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "whatsapp"
+  ],
+  "author": "Afifudin Ma'arif",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

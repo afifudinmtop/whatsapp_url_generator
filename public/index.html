@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhatsApp Url Generator</title>
+
+    <!-- bootstrap -->
+    <link href="./bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./bootstrap-icons.css" />
+    <script src="./bootstrap.bundle.min.js"></script>
+
+    <style>
+      body {
+        max-width: 600px !important;
+      }
+    </style>
+  </head>
+
+  <body class="container">
+    <!-- phone -->
+    <div class="mb-3 mt-4">
+      <label for="phone" class="form-label mb-1 fw-bold">Phone Number</label>
+      <input
+        type="number"
+        class="form-control"
+        id="phone"
+        placeholder="6282139906957"
+      />
+    </div>
+
+    <!-- words -->
+    <div class="mb-3">
+      <label for="words" class="form-label mb-1 fw-bold">Words</label>
+      <textarea
+        class="form-control"
+        id="words"
+        rows="3"
+        placeholder="hello there"
+      ></textarea>
+    </div>
+
+    <!-- send -->
+    <button onclick="send_data()" type="button" class="btn btn-primary">
+      Transform
+    </button>
+
+    <!-- url -->
+    <div class="input-group mb-3 mt-5">
+      <input
+        readonly
+        type="url"
+        class="form-control"
+        placeholder="url"
+        aria-describedby="copy_button"
+        id="url"
+      />
+      <button
+        onclick="copy_url()"
+        class="btn btn-outline-secondary"
+        type="button"
+        id="copy_button"
+      >
+        Copy
+      </button>
+    </div>
+
+    <script>
+      function send_data() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("url").value = this.responseText;
+          }
+        };
+        xhttp.open("POST", "./api/", true);
+        xhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+        xhttp.send(
+          "phone=" +
+            document.getElementById("phone").value +
+            "&words=" +
+            document.getElementById("words").value
+        );
+      }
+
+      function copy_url() {
+        document.getElementById("url").select();
+        document.execCommand("copy");
+        document.getElementById("copy_button").innerText = "Copied";
+        setTimeout(function () {
+          document.getElementById("copy_button").innerText = "Copy";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
