@@ -16,13 +16,14 @@ Local demo:
 git clone https://github.com/afifudinmtop/whatsapp_url_generator.git
 cd whatsapp_url_generator
 npm install && npm start
+
 // open http://localhost:3000/ on your browser
 ```
 
 
 ## Examples
 
-```
+```jsx
 // see details on test.js
 const whatsapp_url_generator = require("./whatsapp_url_generator");
 
