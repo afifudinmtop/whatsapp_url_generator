@@ -23,11 +23,11 @@ npm install && npm start
 ## Examples
 
 ```jsx
-// see details on test.js
-const whatsapp_url_generator = require("./whatsapp_url_generator");
-
+const whatsapp_url_generator = require("whatsapp_url_generator");
 console.log(whatsapp_url_generator.generate("6282139906987", "Hello"));
 ```
+
+// you can see the example files on test.js
 
 ## License
 
